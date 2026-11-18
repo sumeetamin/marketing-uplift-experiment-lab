@@ -9,9 +9,14 @@ from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
+def pre_treatment_features(data, treatment, outcome):
+ blocked=[treatment,outcome]+[c for c in ["segment","visit","spend"] if c in data.columns]
+ return data.drop(columns=blocked)
+
+
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument("--input",required=True);p.add_argument("--treatment",required=True);p.add_argument("--outcome",required=True);p.add_argument("--out",default="outputs");p.add_argument("--source-sha256",default=None);a=p.parse_args()
- d=pd.read_csv(a.input).dropna(subset=[a.treatment,a.outcome]);t=d[a.treatment].astype(int);y=d[a.outcome].astype(int);blocked=[a.treatment,a.outcome]+[c for c in ["segment","visit","spend"] if c in d.columns];X=d.drop(columns=blocked)
+ d=pd.read_csv(a.input).dropna(subset=[a.treatment,a.outcome]);t=d[a.treatment].astype(int);y=d[a.outcome].astype(int);X=pre_treatment_features(d,a.treatment,a.outcome)
  if set(t.unique())!={0,1}:raise SystemExit("Treatment must be randomized and coded 0/1.")
  tr,te=train_test_split(np.arange(len(d)),test_size=.25,random_state=42,stratify=t.astype(str)+"_"+y.astype(str))
  def fit(mask):
