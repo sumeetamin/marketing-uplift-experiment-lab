@@ -29,10 +29,10 @@ The stratified split used 31,959 training and 10,654 holdout rows.
 | Measure | Estimate |
 |---|---:|
 | Overall observed conversion lift | 0.68 percentage points |
-| 95% approximate interval | 0.31 to 1.04 percentage points |
+| Newcombe 95% score interval (Wilson proportions) | 0.32 to 1.05 percentage points |
 | Top-decile observed lift | 1.17 percentage points |
-| Top-decile 95% interval | -0.38 to 2.72 percentage points |
+| Top-decile Newcombe 95% score interval | -0.45 to 2.94 percentage points |
 
-The top-decile interval crosses zero, so this run does **not** show reliable evidence that the uplift ranking improves targeting over the overall randomized effect. This is not an ROI estimate; the dataset has no campaign costs or margin model. Test a cost-aware policy in a new randomized campaign before using it for outreach.
+The top decile contains 12 conversions among 526 treated customers and 6 among 540 controls. Its Newcombe score interval crosses zero, so this run does **not** show reliable evidence that the uplift ranking improves targeting. Intervals use independent Wilson score limits and do not account for model selection, repeated experimentation, or campaign costs. This is not an ROI estimate; the dataset has no campaign costs or margin model. Test a cost-aware policy in a new randomized campaign before using it for outreach.
 
 Full aggregate metrics and fingerprints: [`reports/benchmark.json`](reports/benchmark.json).
