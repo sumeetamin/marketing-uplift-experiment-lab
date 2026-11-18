@@ -1,41 +1,5 @@
-{
-  "rows": 42613,
-  "input_sha256": "ea53242fc1348a9df5091905e0c9211f3ad18cdebf427e2e00b819ac6002e217",
-  "source_sha256": "27bab8c5d3669f26ec08ebb50a0a78317542f29501156f2e2af6781fab4cd7e2",
-  "train_rows": 31959,
-  "holdout_rows": 10654,
-  "treatment_rate": 0.5,
-  "holdout_observed_lift": 0.006758025154871411,
-  "holdout_lift_ci95": [
-    0.0031346980256804872,
-    0.010381352284062334
-  ],
-  "top_decile_rows": 1066,
-  "top_decile_treatment_n": 526,
-  "top_decile_control_n": 540,
-  "top_decile_observed_lift": 0.011702577101816646,
-  "top_decile_lift_ci95": [
-    -0.0038210761213393514,
-    0.027226230324972643
-  ],
-  "covariate_columns": [
-    "recency",
-    "history_segment",
-    "history",
-    "mens",
-    "womens",
-    "zip_code",
-    "newbie",
-    "channel"
-  ],
-  "note": "The treatment was randomized in the source experiment. Effects and uplift rankings are exploratory single-holdout estimates; a campaign decision requires cost-aware utility and replication.",
-  "source_dataset": "Hillstrom MineThatData Email Analytics Challenge (2008)",
-  "source_url": "https://github.com/W-Tran/uplift-modelling/blob/master/data/hillstrom/Kevin_Hillstrom_MineThatData_E-MailAnalytics_DataMiningChallenge_2008.03.20.csv",
-  "benchmark_date": "2026-11-17",
-  "treatment_contrast": "Mens E-Mail versus No E-Mail",
-  "feature_exclusions": [
-    "segment (treatment assignment)",
-    "visit (post-treatment outcome)",
-    "spend (post-treatment outcome)"
-  ]
-}
+Get-Content: 
+Line |
+  16 |  Get-Content -Raw -LiteralPath 'reports/benchmark.json'
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find path 'reports/benchmark.json' because it does not exist.
